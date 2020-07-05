@@ -1,0 +1,19 @@
+<header>
+  <div class="container">
+    <div class="gridContainer">
+      <a routerLink="/">
+        <h1 class="title">Phone Book</h1>
+      </a>
+      <div class="logout">
+        <button *ngIf="isAuthenticated" (click)="logout()">Logout</button>
+        <button *ngIf="!isAuthenticated">Login</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</div>

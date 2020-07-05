@@ -1,0 +1,48 @@
+header {
+  height: 9vh;
+  display: grid;
+  align-items: center;
+  border-bottom: 1px solid #a7ff83;
+  .gridContainer {
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    grid-template-areas: "title . logout";
+    align-items: center;
+    a {
+      color:#fff;
+      &:hover {
+        color: #078b12;
+      }
+    }
+    .logout {
+      grid-area: logout;
+      justify-self: center;
+      button {
+        outline: none;
+        border: none;
+        padding: 10px 30px;
+        color: #078b12;
+        background: #031b0e;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-decoration: none;
+        font-size: 16px;
+        overflow: hidden;
+        transition: 0.2s;
+      }
+      button:hover {
+        outline: none;
+        color: #fff;
+        box-shadow: 0 0 5px #3af321, 0 0 10px #3af321, 0 0 20px #3af321;
+      }
+    }
+    .title {
+      grid-area: title;
+      font-size: 18px;
+    }
+  }
+}
+main {
+  min-height: 90vh;
+}
+

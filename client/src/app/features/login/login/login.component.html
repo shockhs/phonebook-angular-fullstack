@@ -1,0 +1,30 @@
+<div class="pageContainer">
+  <form
+    (ngSubmit)="submit($event)"
+    [formGroup]="form"
+    class="loginForm"
+    autoComplete="off"
+  >
+    <div class="inputFieldLogin">
+      <input id="email" required formControlName="email" type="text" />
+      <label for="email">Email</label>
+      <span></span>
+    </div>
+    <div class="inputFieldLogin">
+      <input
+        id="password"
+        formControlName="password"
+        required
+        type="password"
+      />
+      <label for="password">Password:</label>
+      <span></span>
+    </div>
+
+    <span class="error" *ngIf="error">{{ error }}</span>
+    <div class="buttons">
+      <button type="submit" [disabled]="form.invalid">Login</button>
+      <button (click)="registerToggle()">Go to register</button>
+    </div>
+  </form>
+</div>

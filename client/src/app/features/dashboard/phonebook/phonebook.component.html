@@ -1,0 +1,62 @@
+<div class="phoneBook">
+  <ul class="bookElements" *ngIf="numbers">
+    <li *ngFor="let number of numbers; let i = index">
+      <div class="main">
+        <div class="view" (dblclick)="editNumber(i)">
+          <span>Name: </span>
+          <label>
+            {{ number.name }}
+          </label>
+          <span>Phone Number: </span>
+          <label>
+            {{ number.phone }}
+          </label>
+        </div>
+        <div class="icons">
+          <img
+            src="/assets/img/delete.svg"
+            alt="deleteIcon"
+            (click)="deleteNumber(i)"
+          />
+        </div>
+      </div>
+    </li>
+  </ul>
+
+  <form
+    class="inputForm"
+    *ngIf="numberForUpdateId !== null && isEditing; else addForm"
+    [formGroup]="editForm"
+    (ngSubmit)="saveNumber($event)"
+  >
+    <div class="field">
+      <input required="" type="text" formControlName="name" id="editName" />
+      <label for="editName">Name: </label>
+      <span></span>
+    </div>
+    <div class="field">
+      <input required="" type="text" formControlName="phone" id="editPhone" />
+      <label for="editPhone">Phone: </label>
+      <span></span>
+    </div>
+    <button type="submit" [disabled]="editForm.invalid">Save</button>
+  </form>
+
+  <span>Double click on contact for editing</span>
+
+  <ng-template #addForm>
+    <form (ngSubmit)="addNumber($event)" [formGroup]="form" class="inputForm">
+      <div class="field">
+        <input required="" type="text" formControlName="name" id="name" />
+        <label for="name">Name: </label>
+        <span></span>
+      </div>
+      <div class="field">
+        <input required="" type="text" formControlName="phone" id="phone" />
+        <label for="phone">Phone: </label>
+        <span></span>
+      </div>
+      <button type="submit" [disabled]="form.invalid">Submit</button>
+    </form>
+  </ng-template>
+</div>

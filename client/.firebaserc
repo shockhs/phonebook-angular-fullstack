@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "phonebook-6b10c": {
+      "hosting": {
+        "phonebook": [
+          "phonebook-6b10c"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+<div class="pageContainer">
+  <form
+    (ngSubmit)="submit($event)"
+    [formGroup]="form"
+    class="loginForm"
+    autoComplete="off"
+  >
+    <div class="inputFieldLogin">
+      <input id="email" required formControlName="email" type="text" />
+      <label for="email">Email</label>
+      <span></span>
+    </div>
+    <div class="inputFieldLogin">
+      <input
+        id="password"
+        formControlName="password"
+        required
+        type="password"
+      />
+      <label for="password">Password:</label>
+      <span></span>
+    </div>
+    <div class="inputFieldLogin">
+      <input
+        id="verifyPassword"
+        formControlName="verifyPassword"
+        required
+        type="password"
+      />
+      <label for="verifyPassword">Repeat password:</label>
+      <span></span>
+    </div>
+
+    <span class="error" *ngIf="error">{{ error }}</span>
+    <span class="error" *ngIf="form.value.password && form.errors">
+      Пароли не совпадают
+    </span>
+    <div class="buttons">
+      <button type="submit" [disabled]="form.invalid">Register</button>
+      <button (click)="loginToggle()">Go to login</button>
+    </div>
+  </form>
+</div>
