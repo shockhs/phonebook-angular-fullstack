@@ -1,0 +1,29 @@
+.main {
+  display: grid;
+  grid-template-columns: 93% 7%;
+  grid-template-rows: 30px;
+  align-items: center;
+
+  .view {
+    display: flex;
+
+    label + span {
+      margin-left: 10px;
+    }
+
+    span {
+      color: #04fa56;
+    }
+  }
+
+  .icons {
+    display: flex;
+    margin-right: 5px;
+    justify-content: flex-end;
+
+    img {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}

@@ -1,25 +1,14 @@
 <div class="phoneBook">
   <ul class="bookElements" *ngIf="numbers">
-    <li *ngFor="let number of numbers; let i = index">
-      <div class="main">
-        <div class="view" (dblclick)="editNumber(i)">
-          <span>Name: </span>
-          <label>
-            {{ number.name }}
-          </label>
-          <span>Phone Number: </span>
-          <label>
-            {{ number.phone }}
-          </label>
-        </div>
-        <div class="icons">
-          <img
-            src="/assets/img/delete.svg"
-            alt="deleteIcon"
-            (click)="deleteNumber(i)"
-          />
-        </div>
-      </div>
+    <li>
+      <app-phonenumber
+        *ngFor="let number of numbers; trackBy: identityKeys; let i = index"
+        [number]="number"
+        indexNumber="i"
+        (editNumber)="editNumber(i)"
+        (deleteNumber)="deleteNumber(i)"
+      >
+      </app-phonenumber>
     </li>
   </ul>
 
@@ -42,7 +31,7 @@
     <button type="submit" [disabled]="editForm.invalid">Save</button>
   </form>
 
-  <span>Double click on contact for editing</span>
+  <span>Double click on contact for edit</span>
 
   <ng-template #addForm>
     <form (ngSubmit)="addNumber($event)" [formGroup]="form" class="inputForm">

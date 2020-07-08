@@ -1,0 +1,19 @@
+<div class="main">
+  <div class="view" (dblclick)="onChange()">
+    <span>Name: </span>
+    <label>
+      {{ number.name }}
+    </label>
+    <span>Phone Number: </span>
+    <label>
+      {{ number.phone }}
+    </label>
+  </div>
+  <div class="icons">
+    <img
+      src="/assets/img/delete.svg"
+      alt="deleteIcon"
+      (click)="onDelete()"
+    />
+  </div>
+</div>

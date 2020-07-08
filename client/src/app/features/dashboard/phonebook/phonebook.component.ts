@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService, UserType } from '../../../services/auth.service';
 
-interface Number {
+export interface Number {
   id: number;
   name: string;
   phone: string;
@@ -39,6 +39,10 @@ export class PhonebookComponent implements OnInit {
     this.getNumbers();
   }
 
+  identityKeys(index: number, item: Number) {
+    return item.id;
+  }
+
   getNumbers() {
     this.apollo
       .watchQuery({
@@ -67,7 +71,7 @@ export class PhonebookComponent implements OnInit {
       .subscribe(
         ({ data }: any) => {
           this.numbers = [...this.numbers, data.addNumber];
-          this.form.reset()
+          this.form.reset();
         },
         (error) => {
           console.log('Ошибка запроса, error');
